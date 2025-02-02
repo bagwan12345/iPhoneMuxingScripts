@@ -1,0 +1,1 @@
+for %f in (*.JPG) do if exist "%~nf.HEIC" del "%~nf.HEIC"
