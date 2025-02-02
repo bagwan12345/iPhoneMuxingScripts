@@ -1,6 +1,11 @@
 # iPhone Muxing Scripts
 
-This is some code that I used to mix-and-match images and videos when trying to convert iPhone Live Photos into Google Motion Photos. This was only necessary in the very specific case of images overflowing after IMG_9999 was taken on the iPhone, causing duplicate images to being formed (e.g. IMG_0123(1).JPG), thus ruining the integrity of the match between the image and its supposedly-corresponding video.  
+This is some code that I used to mix-and-match images and videos when trying to convert iPhone Live Photos into Google Motion Photos. This was only necessary in the very specific case of images overflowing after IMG_9999 was taken on the iPhone, causing duplicate images to being formed (e.g. IMG_0123(1).JPG), thus ruining the integrity of the match between the image and its supposedly-corresponding video. 
+One can use script.py to "re-match" all the photos and videos, and can thereby rejoin them using ["MotionPhoto2"](https://github.com/PetrVys/MotionPhoto2/), a program that relies on file names (and, as you might guess, if the file names are all weird then it can cause weird combos of still-images to live-videos).
+
+### deleteHEICifMatchingJPG.txt
+- Contains a one-line cmd command that you can use in the directory of your choice.
+- It is meant to be used AFTER MotionPhotos does its job, as HEIC photos tend to become JPG photos (losslessly, weirdly enough).
 
 ### createDuplicatesFolder.cmd
 - Makes a subfolder called "duplicateFiles" for any files that have a (1) or (2) in their name (as well as the "base" file without brackets).
@@ -15,4 +20,4 @@ This is some code that I used to mix-and-match images and videos when trying to 
 
 ### script.py
 - This Program that looks at ALL files inside the duplicateFiles folder and allows you to compare each image with a corresponding video's first frame. You then get to decide whether those images match or not. 
-- Why is this important? This comes in useful when you have weird filename clashes due to iPhone only allowing up to IMG_9999. If this occurs and you move Live Photos off of an iPhone, those Live Photos that the iPhones create are "separated" into 2 files (a HEIC/JPG and a MP4/MOV). You can rejoin them (using "MotionPhoto2") but that program looks at the file names, and if the file names are all weird then it can cause weird combos of still-images to live-videos.
+- Why is this important? This comes in useful when you have weird filename clashes due to iPhone only allowing up to IMG_9999. If this occurs and you move Live Photos off of an iPhone, those Live Photos that the iPhones create are "separated" into 2 files (a HEIC/JPG and a MP4/MOV). 
